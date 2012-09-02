@@ -38,12 +38,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.completion = nil;
-    self.start = nil;
-    [super dealloc];
-}
 
 - (void)animationDidStart:(CAAnimation *)anim
 {
@@ -80,7 +74,6 @@
     newDelegate.completion = completion;
     newDelegate.start = ((CAAnimationDelegate *)self.delegate).start;
     self.delegate = newDelegate;
-    [newDelegate release];
 }
 
 - (void (^)(BOOL))completion
@@ -97,7 +90,6 @@
     newDelegate.start = start;
     newDelegate.completion = ((CAAnimationDelegate *)self.delegate).completion;
     self.delegate = newDelegate;
-    [newDelegate release];
 }
 
 - (void (^)())start

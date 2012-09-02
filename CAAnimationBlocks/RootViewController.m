@@ -15,11 +15,6 @@
 
 @synthesize imageView;
 
-- (void)dealloc
-{
-    self.imageView = nil;
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
